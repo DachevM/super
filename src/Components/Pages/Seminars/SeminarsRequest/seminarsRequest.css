@@ -1,0 +1,129 @@
+.seminarsRequest_main{
+    margin: 30px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #434652;
+}
+.seminarsRequest_head{
+    height: 20%;
+    text-align: right;
+}
+.seminarsRequest_search_inp{
+    width: 300px;
+    height: 1px;
+}
+
+.seminarsRequest_pages{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+}
+.seminarsRequest_pages_butt{
+    font-size: 18px;
+    background-color: white;
+    border-radius: 4px;
+    border-color: #EBECEF;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #737680;
+}
+.seminarsRequest_pages_arrow1{
+    background-color: white;
+    border-radius: 4px;
+    border-color: #EBECEF;
+    margin-left: 20px;
+    color: #737680;
+}
+.seminarsRequest_pages_arrow2{
+    background-color: white;
+    border-radius: 4px;
+    border-color: #EBECEF;
+    color: #737680;
+}
+.seminarsRequest_head_bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 35px;
+    margin-top: 50px;
+    font-size: 16px;
+}
+.seminarsRequest_link{
+    font-size: 16px;
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+}
+.link{
+    text-decoration: none;
+    color: #737680;
+}
+
+.seminarsRequestBody{
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+}
+.seminarsRequest_descr{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    background-color: #F8F8FA;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    border-top-color: #EBECEF;
+    align-items: center;
+    height: 7%;
+    justify-content: space-between;
+}
+.seminarsRequest_seminars{
+    overflow: auto;
+}
+.seminarsRequest_seminars::-webkit-scrollbar{
+    width: 10px;
+}
+.seminarsRequest_section{
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    height: 60px;
+
+}
+.seminarsRequest_name{
+    text-align: left;
+    width: 480px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.seminarsRequest_user{
+    text-align: left;
+    width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.seminarsRequest_phone{
+    text-align: left;
+    width: 165px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.seminarsRequest_date{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    width: 90px;
+}

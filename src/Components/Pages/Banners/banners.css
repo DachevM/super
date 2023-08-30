@@ -1,0 +1,212 @@
+.banners_main {
+    margin: 40px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    color: #434652;
+}
+
+.banners_head {
+    display: flex;
+    flex-direction: row;
+}
+
+.banners_body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100%;
+}
+
+.banners_body_head {
+    border: 2px solid white;
+    background-color: #F8F8FA;
+    border-bottom-color: #EBECEF;
+    border-top-color: #EBECEF;
+    height: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.banners_body_banners {
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+
+.banners_body_left_banners {
+    padding-left: 15px;
+    width: 20%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.banners_body_right_banners {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5px;
+    width: 100%;
+}
+
+.banners_body_layout {
+    height: 720px;
+    overflow: auto;
+}
+
+.ten_banners {
+    margin: 10px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.banners_body_layout::-webkit-scrollbar {
+    width: 12px;
+}
+
+.banners_add {
+    text-align: left;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 640px;
+    color: #363535;
+}
+
+.banners_add_head {
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 101px;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+}
+
+.banners_head_butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width:1015px;
+    height: 40px;
+    cursor: pointer;
+    padding: 8px 20px 8px 20px;
+}
+
+.banners_butt_save {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 272px;
+    height: 48px;
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+.banners_butt_close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: white;
+    border: 1px solid #D0D3DA;
+    color: #37393D;
+    border-radius: 6px;
+    width: 272px;
+    height: 48px;
+    cursor: pointer;
+    margin-right: 7px;
+}
+
+.banners_add_body {
+    height: 840px;
+    margin: 20px;
+    overflow: auto;
+}
+
+.banners_add_body::-webkit-scrollbar {
+    width: 2px;
+}
+
+.banners_descr_inp{
+    width: 560px;
+    height: 24px;
+    border-radius: 8px;
+    border: 1px solid #D0D3DA;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.banner_product_name {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.banner_products_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+}
+
+.banner_products {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.banners_add_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin-left: 40px;
+}
+
+.banners_pen {
+    margin-right: 28px;
+    cursor: pointer;
+}
+
+.banners_trash {
+    margin-right: 15px;
+    cursor: pointer;
+}
+.banners_add_trash {
+    margin-right: 10px;
+    margin-bottom:5px;
+    cursor: pointer;
+}

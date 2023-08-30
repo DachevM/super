@@ -1,0 +1,124 @@
+.brands_main{
+    margin: 40px;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    color: #434652;
+}
+.brands_head{
+    display: flex;
+    flex-direction: row;
+}
+.brands_body{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100%;
+}
+
+.brands_body_head{
+    border: 2px solid white;
+    background-color: #F8F8FA;
+    border-bottom-color: #EBECEF;
+    border-top-color: #EBECEF;
+    height: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+    padding-left: 15px;
+}
+.brands_head_butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 330px;
+    height: 40px;
+    cursor: pointer;
+    padding: 8px 20px 8px 20px;
+}
+.brands_head_inp{
+    width: 330px;
+    height: 20px;
+    border: 1px solid #D0D3DA;
+    border-radius: 8px;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.brands_body_left_head{
+    padding-left: 3px;
+    width: 17%;
+}
+.brands_body_right_head{
+    padding-left: 15px;
+
+}
+.brands_body_brands{
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    height: 131px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.brands_body_left_brands{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20%;
+height: 111px;
+
+}
+.brands_body_right_brands{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    width: 90%;
+}
+.brands_body_layout{
+    height: 720px;
+    overflow: auto;
+}
+.brands_body_layout::-webkit-scrollbar{
+    width: 2px;
+}
+.delete_brand{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    text-align: center;
+}
+.delete_brand_name{
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.brands_image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 15px;
+    width: 111px;
+    background-color: #FAFAFA;
+    height: 111px;
+}
+.brands_pen{
+    margin-right: 52px;
+    cursor: pointer;
+}
+.brands_trash{
+    margin-right: 10px;
+    cursor: pointer;
+}

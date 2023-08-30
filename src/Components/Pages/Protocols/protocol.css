@@ -1,0 +1,236 @@
+.mainsProt {
+    margin: 40px;
+    height: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #434652;
+}
+
+.protocolsCategory {
+    height: 100%;
+    width: 45%;
+
+}
+
+.protocols {
+    height: 100%;
+    width: 45%;
+}
+
+.protocolsCategory_head {
+    display: flex;
+    flex-direction: column;
+    height: 88px;
+    gap: 8px;
+}
+
+.protocols_head {
+    display: flex;
+    flex-direction: column;
+    height: 88px;
+    gap: 8px;
+}
+
+.protocolsCategory_body_head {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    text-align: left;
+    height: 45px;
+    border: 2px solid white;
+    background-color: #F8F8FA;
+    border-bottom-color: #EBECEF;
+    border-top-color: #EBECEF;
+    padding-left: 10px;
+}
+
+.protocols_category_head_butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 440px;
+    height: 70px;
+    cursor: pointer;
+    padding: 8px 20px 8px 20px;
+}
+.protocols_head_butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 440px;
+    height: 40px;
+    cursor: pointer;
+    padding: 8px 20px 8px 20px;
+    margin-top: 48px;
+}
+.protocols_head_inp{
+    width: 415px;
+    height: 40px;
+    border: 1px solid #D0D3DA;
+    border-radius: 8px;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+
+}
+
+.protocolsCategory_body_data {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #434652;
+    text-align: left;
+    height: 55px;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    padding-left: 10px;
+}
+
+.protocolsCategory_body_data_name {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    width: 350px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.protocolsCategory_data {
+    overflow: auto;
+    height: 630px;
+}
+
+.protocolsCategory_data::-webkit-scrollbar {
+    width: 12px;
+}
+
+.protocol_products {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    overflow: auto;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.protocol_add {
+    text-align: left;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 640px;
+    color: #363535;
+
+}
+
+.protocol_add_head {
+    padding-left: 70px;
+    padding-right: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:101px;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+}
+
+.protocol_butt_save{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 560px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.protocol_add_body {
+    height: 840px;
+    margin: 20px;
+    overflow: auto;
+}
+
+.protocol_add_inp{
+    width: 560px;
+    height: 24px;
+    border-radius: 8px;
+    border: 1px solid #D0D3DA;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.protocol_add_large_inp{
+    width: 560px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #D0D3DA;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.protocol_product_text{
+    margin-top: 20px;
+}
+
+.protocol_product_name {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.protocol_products_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+}
+
+.protocol_add_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    margin: 15px;
+}
+
+.choose_protocol {
+    width: 45%;
+    color: #737680;
+}
+
+.protocols_pen{
+    margin-right: 15px;
+    cursor: pointer;
+}
+.protocols_trash{
+    margin-right: 7px;
+    cursor: pointer;
+}

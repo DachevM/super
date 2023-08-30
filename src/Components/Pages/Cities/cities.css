@@ -1,0 +1,116 @@
+.cities_main{
+    margin: 40px;
+    height: 90%;
+    display: flex;
+flex-direction: column;
+    color: #434652;
+}
+.cities_head{
+    display: flex;
+    flex-direction: row;
+}
+.cities_body{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    height: 100%;
+
+}
+.cities_body_head{
+    border: 2px solid white;
+    background-color: #F8F8FA;
+    border-bottom-color: #EBECEF;
+    border-top-color: #EBECEF;
+    height: 6%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+
+.cities_body_left_head{
+    padding-left: 15px;
+    width: 50%;
+}
+.cities_body_right_head{
+    padding-left: 15px;
+    width: 50%;
+}
+
+.cities_head_butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    background-color: #C06ECC;
+    border: #C06ECC;
+    color: white;
+    border-radius: 6px;
+    width: 330px;
+    height: 40px;
+    cursor: pointer;
+    padding: 8px 20px 8px 20px;
+}
+.cities_head_inp{
+    width: 330px;
+    height: 20px;
+    border: 1px solid #D0D3DA;
+    border-radius: 8px;
+    padding: 10px 12px 10px 12px;
+    gap: 8px;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.cities_head_inp:focus{
+    border: 1px solid #C06ECC;
+}
+.cities_body_cities{
+    border: 2px solid white;
+    border-bottom-color: #EBECEF;
+    height: 7%;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    text-align: left;
+}
+.cities_body_left_cities{
+    padding-left: 15px;
+    width: 50%;
+}
+.cities_body_right_cities{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    width: 50%;
+}
+.cities_body_layout{
+    height: 720px;
+    overflow: auto;
+}
+.cities_body_layout::-webkit-scrollbar{
+    width: 12px;
+}
+.сity_delete{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    font-size: 24px;
+    text-align: center;
+}
+.city_name_delete{
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.cities_pen{
+    margin-right: 18px;
+    cursor: pointer;
+}
+.cities_trash{
+    margin-right: 10px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.layout{
+  display: flex;
+  flex-direction: row;
+}
+.main{
+
+  margin-left: 15px;
+  margin-top: 40px;
+  width: 1090px;
+  height: 850px;
+  background-color:#FFFFFF;
+  border-radius: 15px;
+  box-shadow: -0px 1px 15px 0 #e5e5e5;
+}
+
+
