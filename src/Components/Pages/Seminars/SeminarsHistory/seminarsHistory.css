@@ -1,140 +1,310 @@
-.seminarsHistory_main{
-    margin: 30px;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    color: #434652;
+.seminarsHistory_main {
+  margin: 30px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #434652;
 }
-.seminarsHistory_head{
-    height: 25%;
-    text-align: right;
+.seminarsHistory_head {
+  height: 18%;
+  text-align: right;
 }
-.seminarsHistory_search_inp{
-    width: 300px;
-    height: 1px;
-}
-
-.seminarsHistory_pages{
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    align-items: center;
-}
-.seminarsHistory_pages_butt{
-    font-size: 18px;
-    background-color: white;
-    border-radius: 4px;
-    border-color: #EBECEF;
-    margin-left: 10px;
-    margin-right: 10px;
-    color: #737680;
-}
-.seminarsHistory_pages_arrow1{
-    background-color: white;
-    border-radius: 4px;
-    border-color: #EBECEF;
-    margin-left: 20px;
-    color: #737680;
-}
-.seminarsHistory_pages_arrow2{
-    background-color: white;
-    border-radius: 4px;
-    border-color: #EBECEF;
-    color: #737680;
-}
-.seminarsHistory_head_bottom{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 35px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    font-size: 16px;
-}
-.seminarsHistory_link{
-    font-size: 16px;
-    width: 350px;
-    display: flex;
-    justify-content: space-between;
-}
-.link{
-    text-decoration: none;
-    color: #737680;
+.seminarsHistory_search_inp {
+  width: 300px;
+  height: 1px;
 }
 
-.seminarsHistoryBody{
-    display: flex;
-    flex-direction: column;
-    height: 585px;
+.seminarsHistory_pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
 }
-.seminarsHistory_descr{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: row;
-    background-color: #F8F8FA;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
-    border-top-color: #EBECEF;
-    align-items: center;
-    height: 7%;
-    justify-content: space-between;
+.seminarsHistory_pages_butt {
+  font-size: 18px;
+  background-color: white;
+  border-radius: 4px;
+  border-color: #ebecef;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #737680;
 }
-.seminarsHistory_seminars{
-    overflow: auto;
+.seminarsHistory_pages_arrow1 {
+  background-color: white;
+  border-radius: 4px;
+  border-color: #ebecef;
+  margin-left: 20px;
+  color: #737680;
 }
-.seminarsHistory_seminars::-webkit-scrollbar{
-    width: 10px;
+.seminarsHistory_pages_arrow2 {
+  background-color: white;
+  border-radius: 4px;
+  border-color: #ebecef;
+  color: #737680;
 }
-.seminarsHistory_section{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
-    height: 60px;
-
+.seminarsHistory_head_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-size: 16px;
 }
-.seminarsHistory_name{
-    text-align: left;
-    width: 700px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.seminarsHistory_link {
+  font-size: 16px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -40px;
+  margin-bottom: 30px;
 }
-.seminarsHistory_date{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    width: 200px;
-}
-.seminars_add{
-    text-align: left;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 560px;
-    color: #363535;
-}
-.seminars_add_head{
-    padding-left: 70px;
-    padding-right: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
+.seminarsHistory_butt {
+  margin-bottom: 20px;
 }
 
-.seminars_add_body{
-    height: 840px;
-    margin: 20px;
-    overflow: auto;
+.seminarsHistory_head_butt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #c06ecc;
+  border: #c06ecc;
+  color: white;
+  border-radius: 6px;
+  width: 1015px;
+  height: 40px;
+  cursor: pointer;
+  padding: 8px 20px 8px 20px;
+}
+
+.link {
+  text-decoration: none;
+  color: #737680;
+}
+
+.seminarsHistoryBody {
+  display: flex;
+  flex-direction: column;
+  height: 585px;
+}
+.seminarsHistory_descr {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f8f8fa;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+  border-top-color: #ebecef;
+  align-items: center;
+  height: 7%;
+  justify-content: space-between;
+}
+
+.label_history {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.seminarsHistory_checkbox {
+  appearance: none;
+}
+
+.seminarsFuture_trash {
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.seminarsHistory_fake {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d0d3da;
+  background-color: #ebecef;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.seminarsHistory_fake::before {
+  content: "";
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  background-color: #c06ecc;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-image: url("checkbox-mark-svgrepo-com.png");
+  background-size: 13px 13px;
+  background-position: center;
+  border: 1px solid #c06ecc;
+}
+
+.seminarsHistory:checked + .seminarsHistory_fake::before {
+  opacity: 1;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.label_history_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.seminarsFutureItem_checkbox {
+  appearance: none;
+}
+
+.fake_history_item {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d0d3da;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.label_history_item::before {
+  content: "";
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  background-color: #c06ecc;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-image: url("checkbox-mark-svgrepo-com.png");
+  background-size: 13px 13px;
+  background-position: center;
+  border: 1px solid #c06ecc;
+}
+.seminarsHistoryItem_checkbox {
+  appearance: none;
+}
+
+.seminarsHistoryItem_checkbox:checked + .fake_history_item::before {
+  opacity: 1;
+}
+
+.text {
+  margin-left: 20px;
+}
+
+.seminarsHistory_seminars {
+  overflow: auto;
+}
+.seminarsHistory_seminars::-webkit-scrollbar {
+  width: 10px;
+}
+.seminarsHistory_section {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+  height: 60px;
+}
+.seminarsHistory_name {
+  text-align: left;
+  width: 700px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.seminarsHistory_date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 200px;
+}
+.seminars_add {
+  text-align: left;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 640px;
+  color: #363535;
+}
+.seminars_add_head {
+  padding-left: 70px;
+  padding-right: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 101px;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+}
+
+.seminars_add_body {
+  height: 840px;
+  margin: 20px;
+  overflow: auto;
+}
+.history_butt_save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #c06ecc;
+  border: #c06ecc;
+  color: white;
+  border-radius: 6px;
+  width: 272px;
+  height: 48px;
+  cursor: pointer;
+  margin-left: 7px;
+}
+
+.history_butt_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: white;
+  border: 1px solid #d0d3da;
+  color: #37393d;
+  border-radius: 6px;
+  width: 272px;
+  height: 48px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+
+.history_descr_inp {
+  width: 560px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid #d0d3da;
+  padding: 10px 12px 10px 12px;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }

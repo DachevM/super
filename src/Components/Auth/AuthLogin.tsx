@@ -1,104 +1,111 @@
 import { useCallback, useContext, useState } from "react";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormControlLabel,
-  IconButton,
-  InputAdornment,
-  InputLabel,
-  OutlinedInput,
-  TextField,
-} from "@mui/material";
-import Visibility from "@mui/icons-material/Visibility";
-import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { Checkbox, FormControlLabel } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
-import { ThemeProvider } from "@emotion/react";
 
 import type React from "react";
 
-import { theme } from "../../Customization/Customization";
 import { AuthContext } from "../../Context/context";
 
 import "./auth.css";
 
 const AuthLogin = () => {
-  const { setIsAuth } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState<boolean>(false);
-  const handleClickShowPassword = useCallback(() => {
-    setShowPassword((show) => !show);
-  }, []);
+  const [isType, setIsType] = useState<boolean>(true);
   const [loginEmail, setLoginEmail] = useState<string>("");
   const [loginPass, setLoginPass] = useState<string>("");
+  const [authError, setAuthError] = useState<boolean>(false);
+  const { setIsAuth } = useContext(AuthContext);
+  const navigate = useNavigate();
 
-  const auth = useCallback(() => {
-    if (
-      localStorage.getItem("E-Mail") === loginEmail &&
-      localStorage.getItem("password") === loginPass
-    ) {
-      setIsAuth(true);
-      navigate("/products");
-    } else {
-      alert("Неверные учетные данные");
-    }
-    setLoginEmail("");
-    setLoginPass("");
+  const handleClickShowPassword = useCallback((e: any) => {
+    setIsType((isType) => !isType);
+    e.preventDefault();
   }, []);
+
+  const auth = useCallback(
+    (e: any) => {
+      e.preventDefault();
+      if (
+        localStorage.getItem("E-Mail") === loginEmail &&
+        localStorage.getItem("password") === loginPass
+      ) {
+        setIsAuth(true);
+        navigate("/products");
+      } else {
+        setAuthError(true);
+      }
+      setLoginEmail("");
+      setLoginPass("");
+    },
+    [loginEmail, loginPass, navigate, setIsAuth]
+  );
+
+  const InputPassChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setLoginPass(e.target.value);
+    },
+    []
+  );
+
+  const InputLoginChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setLoginEmail(e.target.value);
+    },
+    []
+  );
 
   return (
     <div className={"login_form"}>
-      <Box className={"login_box"}>
-        <h1>Вход в учетную запись</h1>
+      <form className={"login_box"}>
+        <h1 className={"enter"}>Вход в учетную запись</h1>
         <div className={"inp_box"}>
-          <InputLabel htmlFor="outlined-basic">E-Mail</InputLabel>
-          <TextField
+          <label className={"auth_label"} form={"outlined-basic"}>
+            E-mail
+          </label>
+          <input
+            type={"text"}
             value={loginEmail}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setLoginEmail(e.target.value);
-            }, [])}
+            onChange={InputLoginChange}
             placeholder={"Введите свой e-mail"}
-            className={"auth_inp"}
-            id="outlined-basic"
-            variant="outlined"
+            className={authError ? "input_auth_error" : "input_auth"}
           />
+          {authError && (
+            <span className={"error_message"}>Неверный логин или пароль</span>
+          )}
         </div>
-        <div className={"inp_box"}>
-          <InputLabel htmlFor="outlined-adornment-password">Пароль</InputLabel>
-          <OutlinedInput
+
+        <label className={"auth_label"} form={"outlined-basic"}>
+          Пароль
+        </label>
+        <div className={"inp_box_pass"}>
+          <input
+            type={isType ? "password" : "text"}
             value={loginPass}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setLoginPass(e.target.value);
-            }, [])}
+            onChange={InputPassChange}
             placeholder={"Введите свой пароль"}
-            className={"auth_inp"}
-            id="outlined-adornment-password"
-            type={showPassword ? "text" : "password"}
-            endAdornment={
-              <InputAdornment position="end">
-                <IconButton onClick={handleClickShowPassword}>
-                  {showPassword ? <VisibilityOff /> : <Visibility />}
-                </IconButton>
-              </InputAdornment>
-            }
+            className={authError ? "input_auth_pass_error" : "input_auth_pass"}
           />
+          <button
+            onClick={handleClickShowPassword}
+            className={"input_box_button"}
+          ></button>
         </div>
+        {authError && (
+          <span className={"error_message"}>Неверный логин или пароль</span>
+        )}
         <FormControlLabel
           control={<Checkbox defaultChecked />}
-          label="Запомнить меня"
+          label={"Запомнить меня"}
         />
         <div className={"butt_box"}>
-          <ThemeProvider theme={theme}>
-            <Button onClick={auth} color="primary" variant="contained">
-              Войти
-            </Button>
-          </ThemeProvider>
+          <button onClick={auth} className={"auth_butt"}>
+            Войти
+          </button>
           <Link className={"link_to_auth"} to={"/auth/register"}>
             {" "}
             У меня еще нет аккаунта
           </Link>
         </div>
-      </Box>
+      </form>
     </div>
   );
 };

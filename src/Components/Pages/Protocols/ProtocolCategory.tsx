@@ -2,24 +2,27 @@ import { useCallback, useState } from "react";
 
 import type React from "react";
 
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 import "./protocol.css";
-import { type IProtocolCategory } from "../../../types/types";
+import { type IProtocolCategory } from "../../../Types/types";
+import { protocolCategoryAPI } from "../../../RTK/services/ProtocolService";
 
 interface CategoryProps {
   protocolsCategory: IProtocolCategory[];
   setSelected: (value: IProtocolCategory) => void;
-  setProtocols: (value: IProtocolCategory[]) => void;
 }
 
 const ProtocolCategory = ({
   protocolsCategory,
-  setProtocols,
   setSelected,
 }: CategoryProps): JSX.Element => {
   const [name, setProtocolsName] = useState<string>("");
-  const removeCategory = (protocolCategory: IProtocolCategory): void => {
-    setProtocols(protocolsCategory.filter((e) => e.id !== protocolCategory.id));
+  const [deleteCategory] =
+    protocolCategoryAPI.useDeleteProtocolCategoriesMutation();
+  const [categoryAdd] = protocolCategoryAPI.useProtocolCategoriesAddMutation();
+
+  const removeCategory = (protocolCategory: IProtocolCategory) => {
+    deleteCategory(protocolCategory);
   };
 
   const newProtocols = useCallback((): void => {
@@ -27,18 +30,23 @@ const ProtocolCategory = ({
       name,
       id: String(Date.now()),
     };
-    setProtocols([...protocolsCategory, newProtocol]);
+    categoryAdd(newProtocol);
     setProtocolsName("");
-  }, [name, protocolsCategory, setProtocols]);
+  }, [categoryAdd, name]);
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setProtocolsName(e.target.value);
+    },
+    []
+  );
 
   return (
     <div className={"protocolsCategory"}>
       <div className={"protocolsCategory_head"}>
         <input
           value={name}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setProtocolsName(e.target.value);
-          }, [])}
+          onChange={ChangeInpName}
           type={"text"}
           placeholder={"Введите название категории протокола"}
           className={"protocols_head_inp"}

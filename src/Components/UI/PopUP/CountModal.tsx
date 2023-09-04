@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { createPortal } from "react-dom";
 
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 
 interface ModalProps {
   show: boolean;
@@ -28,11 +28,11 @@ const CountModal = ({
     setSelectedItems([]);
     setCheckAll(false);
     setShow(false);
-  }, []);
+  }, [setCheckAll, setSelectedItems, setShow]);
 
   const Close = useCallback(() => {
     setShow(false);
-  }, []);
+  }, [setShow]);
 
   if (number === 0) {
     setShow(false);

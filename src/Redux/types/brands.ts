@@ -1,4 +1,4 @@
-import type { IBrands } from "../../types/types";
+import type { IBrands } from "../../Types/types";
 
 enum BrandsEnum {
   FETCH_BRAND = "FETCH_BRAND",

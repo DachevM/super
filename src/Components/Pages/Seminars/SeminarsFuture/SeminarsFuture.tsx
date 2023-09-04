@@ -5,7 +5,7 @@ import SeminarsFutureList from "./SeminarsFutureList";
 
 import "./seminarsFuture.css";
 
-import { type IFuture } from "../../../../types/types";
+import { type IFuture } from "../../../../Types/types";
 import Pagination from "../../../Elements/Pagination/Pagination";
 import Search from "../../../Elements/Search/Search";
 // import Search from "../../../Elements/Search/Search";

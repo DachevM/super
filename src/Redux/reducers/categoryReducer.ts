@@ -3,7 +3,7 @@ import {
   type CategoryAction,
   type ICat,
 } from "../types/categories";
-import { type ICategory } from "../../types/types";
+import { type ICategory } from "../../Types/types";
 
 const CategoryState: ICat = {
   category: [],

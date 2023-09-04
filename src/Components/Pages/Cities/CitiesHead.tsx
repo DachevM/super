@@ -4,7 +4,7 @@ import type React from "react";
 
 import "./cities.css";
 
-import { type ICities } from "../../../types/types";
+import { type ICities } from "../../../Types/types";
 
 interface CitiesHeadProps {
   cities: ICities[];
@@ -24,23 +24,34 @@ const CitiesHead = ({ cities, setCities }: CitiesHeadProps) => {
     setCities([...cities, newCity]);
     setCityName("");
     setCityAddress("");
-  }, []);
+  }, [address, cities, name, setCities]);
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCityName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeInpAddress = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCityAddress(e.target.value);
+    },
+    []
+  );
+
   return (
     <div className={"cities_head"}>
       <input
         value={name}
-        onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-          setCityName(e.target.value);
-        }, [])}
+        onChange={ChangeInpName}
         type={"text"}
         placeholder={"Введите название города"}
         className={"cities_head_inp"}
       />
       <input
         value={address}
-        onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-          setCityAddress(e.target.value);
-        }, [])}
+        onChange={ChangeInpAddress}
         type={"text"}
         placeholder={"Введите адрес"}
         className={"cities_head_inp"}

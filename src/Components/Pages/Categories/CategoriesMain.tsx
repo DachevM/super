@@ -8,19 +8,20 @@ import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
 import { fetchCat } from "../../../Redux/action-creators/categoryAction";
 import { fetchSub } from "../../../Redux/action-creators/subcategoryAction";
 import "./categories.css";
-import { type ICategory, type ISubCategory } from "../../../types/types";
+import { type ICategory, type ISubCategory } from "../../../Types/types";
 const CategoriesMain = () => {
+  const [selected, setSelected] = useState<null | ICategory>(null);
+  const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.category.category);
   const subcategories = useAppSelector(
     (state) => state.subcategory.subcategory
   );
-  const [selected, setSelected] = useState<null | ICategory>(null);
+
   const filtered = selected
     ? subcategories.filter(
         (e: ISubCategory) => e.position === selected.position
       )
     : [];
-  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchCat());

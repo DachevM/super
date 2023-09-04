@@ -1,9 +1,9 @@
 import React, { type ChangeEvent, useCallback, useState } from "react";
 
-import EditProducts from "./EditProducts";
+import EditProducts from "./EditProducts/EditProducts";
 
 import Modal from "../../UI/PopUP/Modal";
-import { type IProducts } from "../../../types/types";
+import { type IProducts } from "../../../Types/types";
 
 interface ListProps {
   product: IProducts;
@@ -28,9 +28,11 @@ const ProductsItem = ({
   const showModal = useCallback(() => {
     setShow(true);
   }, []);
+
   const showCount = useCallback(() => {
     setModalCount(true);
-  }, []);
+  }, [setModalCount]);
+
   return (
     <div key={product.id} className={"products_body_section"}>
       {show && (

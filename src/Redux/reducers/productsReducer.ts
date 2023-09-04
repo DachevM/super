@@ -1,5 +1,5 @@
 import { type IProd, type ProdAction, ProductsEnum } from "../types/products";
-import { type IProducts } from "../../types/types";
+import { type IProducts } from "../../Types/types";
 
 const ProductState: IProd = {
   products: [],

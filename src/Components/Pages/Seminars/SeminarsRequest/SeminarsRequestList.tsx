@@ -1,14 +1,26 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./seminarsRequest.css";
 
-import type { IRequest } from "../../../../types/types";
+import type { IRequest } from "../../../../Types/types";
 interface RequestBodyProps {
   searchedSeminarsRequest: IRequest[];
 }
 const SeminarsRequestList = ({ searchedSeminarsRequest }: RequestBodyProps) => {
   return (
     <div className={"seminarsRequestBody"}>
+      <div className={"seminarsRequest_link"}>
+        <Link className={"link"} to={"/seminars/future"}>
+          Будущие
+        </Link>
+        <Link className={"link"} to={"/seminars/history"}>
+          История
+        </Link>
+        <Link className={"link"} to={"/seminars/request"}>
+          Заявки на семинары
+        </Link>
+      </div>
       <div className={"seminarsRequest_descr"}>
         <p className={"seminarsRequest_name"}>Название семинара</p>
         <p className={"seminarsRequest_user"}>Пользователь</p>

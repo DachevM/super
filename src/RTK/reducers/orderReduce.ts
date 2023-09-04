@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { fetchOrders, fetchTotal } from "../actions/orderAction";
-import { type IOrders } from "../../types/types";
+import { type IOrders } from "../../Types/types";
 interface IOrderState {
   order: IOrders[];
   orderFiltered: IOrders[];

@@ -2,14 +2,14 @@ import { useCallback, useState } from "react";
 
 import type React from "react";
 
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 import { useAppDispatch } from "../../../Redux/hooks";
 import {
   addCategory,
   remove,
 } from "../../../Redux/action-creators/categoryAction";
 import "./categories.css";
-import { type ICategory } from "../../../types/types";
+import { type ICategory } from "../../../Types/types";
 
 interface CategoriesProps {
   categories: ICategory[];
@@ -30,20 +30,25 @@ const Categories = ({ categories, setSelected }: CategoriesProps) => {
     };
     if (newCategories.name.length !== 0) dispatch(addCategory(newCategories));
     setCategName("");
-  }, []);
+  }, [dispatch, name]);
 
   const removeCategory = (category: ICategory) => {
     return dispatch(remove(category));
   };
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCategName(e.target.value);
+    },
+    []
+  );
 
   return (
     <div className={"categories"}>
       <div className={"categories_head"}>
         <input
           value={name}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setCategName(e.target.value);
-          }, [])}
+          onChange={ChangeInpName}
           type={"text"}
           placeholder={"Введите название категории"}
           className={"categories_search_inp"}

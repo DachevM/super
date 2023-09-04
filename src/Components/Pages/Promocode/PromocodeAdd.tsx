@@ -1,10 +1,12 @@
-import { useCallback, useMemo, useState } from "react";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import { FormControl, MenuItem, Select, TextField } from "@mui/material";
+import { useCallback, useState } from "react";
+import { FormControl, MenuItem, Select } from "@mui/material";
+
+import PromocodeAddSearch from "./PromocodeAddSearch";
 
 import type React from "react";
 
-import { type IPromocode } from "../../../types/types";
+import { type IPromocode } from "../../../Types/types";
+import { initialPromocodeValue } from "../../helper";
 
 interface PromocodeAddProps {
   promocode: IPromocode[];
@@ -20,41 +22,32 @@ const PromocodeAdd = ({
   const [category, setCategory] = useState("");
   const [subcategory, setSubcategory] = useState("");
   const [name, setName] = useState("");
-  const [search, setSearch] = useState("");
-
-  const searchedProd = useMemo(() => {
-    return promocode.map((elem) =>
-      elem.products.filter((e) =>
-        e.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [promocode, search]);
 
   const newPromocodeAdd = () => {
     const newPromocode: IPromocode = {
-      name,
+      ...initialPromocodeValue,
+      name: name,
       id: Date.now() + "",
-      percent: 0,
-      promocode: "",
-      catalog_product: {
-        id: "",
-        name: "",
-        position: 0,
-        __v: 0,
-      },
-      sub_catalog_product: {
-        id: "",
-        name: "",
-        position: 0,
-        catalog_product: "",
-        __v: 0,
-      },
-      products: [],
     };
     setPromocode([...promocode, newPromocode]);
     setName("");
     setShow(false);
   };
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeCategory = useCallback((e: any) => {
+    setCategory(e.target.value);
+  }, []);
+
+  const ChangeSubcategory = useCallback((e: any) => {
+    setSubcategory(e.target.value);
+  }, []);
 
   return (
     <div className={"promocode_add"}>
@@ -77,9 +70,7 @@ const PromocodeAdd = ({
           <input
             type={"text"}
             value={name}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value);
-            }, [])}
+            onChange={ChangeInpName}
             placeholder={"Запишите заголовок"}
             className={"promocode_descr_inp"}
           />
@@ -102,9 +93,7 @@ const PromocodeAdd = ({
                 displayEmpty
                 id="demo-select-small"
                 value={category}
-                onChange={useCallback((e: any) => {
-                  setCategory(e.target.value);
-                }, [])}
+                onChange={ChangeCategory}
               >
                 <MenuItem disabled value="">
                   <em style={color}>Выберите категорию</em>
@@ -117,9 +106,7 @@ const PromocodeAdd = ({
                 displayEmpty
                 id="demo-select-small"
                 value={subcategory}
-                onChange={useCallback((e: any) => {
-                  setSubcategory(e.target.value);
-                }, [])}
+                onChange={ChangeSubcategory}
               >
                 <MenuItem disabled value="">
                   <em style={color}>Выберите подкатегорию</em>
@@ -134,36 +121,7 @@ const PromocodeAdd = ({
             placeholder={"Запишите название бренда"}
             className={"promocode_descr_inp"}
           />
-          <div className={"promocode_products"}>
-            <div>Товары протокола</div>
-            <div className={"promocode_products"}>
-              {searchedProd.map((elem) =>
-                elem.map((e) => (
-                  <div key={e.id} className={"promocode_products_section"}>
-                    <div className={"promocode_product_name"}>{e.name}</div>
-                    <div className={"promocode_product_brand"}>
-                      {e.brand.name}
-                    </div>
-                    <div>
-                      <DeleteOutlineOutlinedIcon cursor={"pointer"} />
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
-            <div className={"promocode_add_search"}>
-              <TextField
-                size={"small"}
-                value={search}
-                onChange={useCallback((e: any) => {
-                  setSearch(e.target.value);
-                }, [])}
-                fullWidth={true}
-                className={"promocode_search_inp"}
-                placeholder={"Поиск по товарам"}
-              />
-            </div>
-          </div>
+          <PromocodeAddSearch promocode={promocode} />
         </>
       </div>
     </div>

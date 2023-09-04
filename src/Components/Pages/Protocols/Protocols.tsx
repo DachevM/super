@@ -3,22 +3,27 @@ import React, { useCallback, useState } from "react";
 import ProtocolAdd from "./ProtocolAdd";
 
 import Modal from "../../UI/PopUP/Modal";
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 import "./protocol.css";
-import { type IProtocol } from "../../../types/types";
+import { type IProtocol } from "../../../Types/types";
+import { protocolAPI } from "../../../RTK/services/ProtocolService";
 
 interface ProtocolProps {
   filtered: IProtocol[];
-  protocols: IProtocol[];
-  setProtocols: (value: IProtocol[]) => void;
 }
 
-const Protocols = ({ filtered, setProtocols, protocols }: ProtocolProps) => {
+const Protocols = ({ filtered }: ProtocolProps) => {
   const [show, setShow] = useState<boolean>(false);
+  const [deleteProtocol] = protocolAPI.useDeleteProtocolMutation();
 
   const showModal = useCallback(() => {
     setShow(true);
   }, []);
+
+  const removeProtocol = (item: IProtocol) => {
+    deleteProtocol(item);
+  };
+
   return (
     <div className={"protocols"}>
       <div className={"protocols_head"}>
@@ -39,8 +44,6 @@ const Protocols = ({ filtered, setProtocols, protocols }: ProtocolProps) => {
                       <ProtocolAdd
                         key={elem.id}
                         filtered={filtered}
-                        setProtocols={setProtocols}
-                        protocols={protocols}
                         setShow={setShow}
                       />
                     </Modal>
@@ -54,6 +57,7 @@ const Protocols = ({ filtered, setProtocols, protocols }: ProtocolProps) => {
                     <div>
                       <img className={"protocols_pen"} src={Img.pen} alt={""} />
                       <img
+                        onClick={() => removeProtocol(elem)}
                         className={"protocols_trash"}
                         src={Img.trash}
                         alt={""}

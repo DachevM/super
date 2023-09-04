@@ -1,11 +1,8 @@
 import { useCallback, useState } from "react";
-import { Button, TextField } from "@mui/material";
-import { ThemeProvider } from "@emotion/react";
 
 import type React from "react";
 
-import { theme } from "../../../../Customization/Customization";
-import { type IHistory } from "../../../../types/types";
+import { type IHistory } from "../../../../Types/types";
 interface HistoryAddProps {
   history: IHistory[];
   setShow: (value: boolean) => void;
@@ -19,6 +16,7 @@ const SeminarsHistoryAdd = ({
 }: HistoryAddProps) => {
   const [name, setName] = useState<string>("");
   const [date, setDate] = useState<string>("");
+
   const newSeminarHistoryAdd = useCallback(() => {
     const newSeminarHistory = {
       description: "",
@@ -32,77 +30,62 @@ const SeminarsHistoryAdd = ({
     setName("");
     setDate("");
     setShow(false);
+  }, [date, history, name, setHistory, setShow]);
+
+  const CloseModal = useCallback(() => {
+    setShow(false);
+  }, [setShow]);
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeDate = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setDate(e.target.value);
   }, []);
+
   return (
     <div className={"seminars_add"}>
       <div className={"seminars_add_head"}>
-        <ThemeProvider theme={theme}>
-          <Button
-            onClick={useCallback(() => {
-              setShow(false);
-            }, [])}
-            fullWidth={true}
-            size={"medium"}
-            variant={"outlined"}
-          >
-            {" "}
-            Удалить{" "}
-          </Button>
-        </ThemeProvider>
-        <ThemeProvider theme={theme}>
-          <Button
-            onClick={newSeminarHistoryAdd}
-            fullWidth={true}
-            size={"medium"}
-            variant={"contained"}
-          >
-            {" "}
-            Сохранить{" "}
-          </Button>
-        </ThemeProvider>
+        <button onClick={CloseModal} className={"history_butt_close"}>
+          Удалить
+        </button>
+        <button onClick={newSeminarHistoryAdd} className={"history_butt_save"}>
+          Сохранить
+        </button>
       </div>
       <div className={"seminars_add_body"}>
         <div className={"edit_descr"}>
           <label form={"outlined-basic"}>Название*</label>
-          <TextField
+          <input
+            type={"text"}
             value={name}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value);
-            }, [])}
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
-            placeholder={"Название семинара"}
-            variant="outlined"
+            onChange={ChangeInpName}
+            placeholder={"Напишите название"}
+            className={"history_descr_inp"}
           />
           <label form={"outlined-basic"}>Описание</label>
-          <TextField
-            fullWidth={true}
-            size={"medium"}
-            id="outlined-basic"
+          <input
+            type={"text"}
             placeholder={"Опишите семинар"}
-            variant="outlined"
+            className={"history_descr_inp"}
           />
-
           <label form={"outlined-basic"}> Дата</label>
-          <TextField
+          <input
+            type={"datetime-local"}
             value={date}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setDate(e.target.value);
-            }, [])}
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
+            onChange={ChangeDate}
             placeholder={"Выберите дату"}
-            variant="outlined"
+            className={"history_descr_inp"}
           />
           <label form={"outlined-basic"}>Фото</label>
-          <TextField
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
+          <input
+            type={"text"}
             placeholder={"Вставьте ссылку на Google Drive"}
-            variant="outlined"
+            className={"history_descr_inp"}
           />
         </div>
       </div>

@@ -1,8 +1,5 @@
 import { useCallback } from "react";
 
-// import { useAppDispatch } from '../../../Redux/hooks'
-// import { searchCases } from '../../../Redux/types/search'
-// import { useNavigate } from 'react-router-dom'
 import type React from "react";
 
 import { useToolkitDispatch } from "../../../RTK/hooksRTK";
@@ -29,12 +26,18 @@ const Search = ({ search }: ISearchProps) => {
   // }, [history]);
   const dispatch = useToolkitDispatch();
   const { searchMod, searchClean } = searchSlice.actions;
-  const handleChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(searchMod(e.target.value));
-  }, []);
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      dispatch(searchMod(e.target.value));
+    },
+    [dispatch, searchMod]
+  );
+
   const searchEmpty = useCallback(() => {
     dispatch(searchClean());
-  }, []);
+  }, [dispatch, searchClean]);
+
   return (
     <div className={"search_form"}>
       <input

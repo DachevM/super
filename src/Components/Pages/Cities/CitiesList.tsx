@@ -4,7 +4,7 @@ import CitiesItem from "./CitiesItem";
 
 import "./cities.css";
 
-import { type ICities } from "../../../types/types";
+import { type ICities } from "../../../Types/types";
 
 interface CitiesHeadProps {
   cities: ICities[];

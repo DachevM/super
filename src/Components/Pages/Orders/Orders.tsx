@@ -24,14 +24,14 @@ const Orders = () => {
     page,
   };
 
+  const totalCount = useCallback(() => {
+    return Math.ceil(total / lim);
+  }, [lim, total]);
+
   useEffect(() => {
     void dispatch(fetchOrders(params));
     void dispatch(fetchTotal(params));
   }, [lim, page]);
-
-  const totalCount = useCallback(() => {
-    return Math.ceil(total / lim);
-  }, [lim, total]);
 
   useEffect(() => {
     dispatch(orderFilter(search));

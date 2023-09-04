@@ -3,9 +3,9 @@ import React, { useCallback, useState } from "react";
 import DeleteCity from "./DeleteCity";
 
 import DeleteModal from "../../UI/PopUP/DeleteModal";
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 import "./cities.css";
-import { type ICities } from "../../../types/types";
+import { type ICities } from "../../../Types/types";
 interface CitiesListProps {
   cities: ICities[];
   setCities: (value: ICities[]) => void;
@@ -14,14 +14,18 @@ interface CitiesListProps {
 
 const CitiesItem = ({ city, setCities, cities }: CitiesListProps) => {
   const [show, setShow] = useState<boolean>(false);
+
   const showModal = useCallback(() => {
     setShow(true);
   }, []);
 
-  const removeCity = useCallback((city: ICities) => {
-    setCities(cities.filter((e) => e.id !== city.id));
-    setShow(false);
-  }, []);
+  const removeCity = useCallback(
+    (city: ICities) => {
+      setCities(cities.filter((e) => e.id !== city.id));
+      setShow(false);
+    },
+    [cities, setCities]
+  );
 
   return (
     <div key={city.id} className={"cities_body_cities"}>

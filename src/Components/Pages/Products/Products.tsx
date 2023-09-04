@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 
 import ProductsList from "./ProductsList";
 
+import type { RootState } from "../../../Redux/store";
+
 import Search from "../../Elements/Search/Search";
 import Pagination from "../../Elements/Pagination/Pagination";
 import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
@@ -23,13 +25,11 @@ const Products = () => {
   const productsFiltered = useAppSelector(
     (state) => state.product.productsFiltered
   );
-  const search = useAppSelector<string>(Selectors.search.searchText);
+  const search = useAppSelector<string>(
+    (state: RootState) => state.search.text
+  );
 
   const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    dispatch(fetchProducts(SERVER_URL, pages, limit));
-  }, [dispatch, limit, pages]);
 
   const totalCount = useCallback(() => {
     return Math.ceil(totalPages / limit);
@@ -39,10 +39,9 @@ const Products = () => {
     dispatch(filter(search));
   }, [search, limit, products, dispatch]);
 
-  // const searchedProd = [] as IProducts[]
-  //     useMemo(() => {
-  //     return products.filter((el: IProducts) => el.name.toLowerCase().includes(search.toLowerCase()))
-  // }, [search, products])
+  useEffect(() => {
+    dispatch(fetchProducts(SERVER_URL, pages, limit));
+  }, [dispatch, limit, pages]);
 
   return (
     <main className={"products_main"}>

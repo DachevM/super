@@ -8,13 +8,13 @@ import {
 
 import type React from "react";
 
-import { Img } from "../../../images/Img";
-import "./products.css";
+import { Img } from "../../../../Images/Img";
+import "../products.css";
 import {
   type ICharacteristics,
   type Images,
   type IProducts,
-} from "../../../types/types";
+} from "../../../../Types/types";
 
 interface EditProps {
   product: IProducts;
@@ -38,8 +38,6 @@ const EditProducts = ({
   const [name, setName] = useState(product.name);
   const [nameFrom1c, setNameFrom1c] = useState<string>(product.nameFrom1C);
   const [codeFrom1C, setCodeFrom1C] = useState<string>(product.codeFrom1C);
-  const [description, setDescription] = useState<string>(product.description);
-  const [price, setPrice] = useState<string | number>(product.price);
   const [image, setImage] = useState<Images[]>(product.images);
   const [characteristics, setCharacteristics] = useState<ICharacteristics[]>(
     product.characteristics
@@ -54,6 +52,7 @@ const EditProducts = ({
     setProductName(name);
     setProductCodeFrom1C(codeFrom1C);
   };
+
   document.addEventListener("keydown", (e) => {
     if (e.code === "Enter") {
       setProductName(name);
@@ -61,6 +60,32 @@ const EditProducts = ({
       setShow(false);
     }
   });
+
+  const ChangeInpName1c = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setNameFrom1c(e.target.value);
+    },
+    []
+  );
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeCategory = useCallback((e: SelectChangeEvent) => {
+    setCateg(e.target.value);
+  }, []);
+
+  const ChangeSubcategory = useCallback((e: any) => {
+    setSubcateg(e.target.value);
+  }, []);
+
+  const ChangeCode = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    setCodeFrom1C(e.target.value);
+  }, []);
 
   return (
     <div key={product.id} className={"edit_products"}>
@@ -78,18 +103,14 @@ const EditProducts = ({
           <input
             disabled={true}
             value={nameFrom1c}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setNameFrom1c(e.target.value);
-            }, [])}
+            onChange={ChangeInpName1c}
             type={"text"}
             className={"edit_products_inp"}
           />
           <label form={"outlined-basic"}>Название*</label>
           <input
             value={name}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setName(e.target.value);
-            }, [])}
+            onChange={ChangeInpName}
             type={"text"}
             className={"edit_products_inp"}
           />
@@ -99,9 +120,7 @@ const EditProducts = ({
               <Select
                 displayEmpty
                 id="demo-select-small"
-                onChange={useCallback((e: SelectChangeEvent) => {
-                  setCateg(e.target.value);
-                }, [])}
+                onChange={ChangeCategory}
               >
                 <MenuItem disabled value="">
                   <em style={color}>Выберите категорию</em>
@@ -114,22 +133,13 @@ const EditProducts = ({
           <input
             disabled={true}
             value={codeFrom1C}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setCodeFrom1C(e.target.value);
-            }, [])}
+            onChange={ChangeCode}
             type={"text"}
             placeholder={"Введите название категории"}
             className={"edit_products_inp"}
           />
           <label form={"outlined-basic"}>Описание*</label>
-          <input
-            value={description}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setDescription(e.target.value);
-            }, [])}
-            type={"text"}
-            className={"edit_products_descr_inp"}
-          />
+          <input type={"text"} className={"edit_products_descr_inp"} />
         </div>
         <div className={"image"}>
           {image.map((elem: Images) => (
@@ -160,10 +170,6 @@ const EditProducts = ({
           <label form={"outlined-basic"}>Цена</label>
           <input
             disabled={true}
-            value={price}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setPrice(e.target.value);
-            }, [])}
             type={"text"}
             className={"edit_products_inline_inp"}
           />
@@ -175,9 +181,7 @@ const EditProducts = ({
               displayEmpty
               id="demo-select-small"
               value={categ}
-              onChange={useCallback((e: any) => {
-                setCateg(e.target.value);
-              }, [])}
+              onChange={ChangeCategory}
             >
               <MenuItem disabled value="">
                 <em style={color}>Выберите категорию</em>
@@ -191,9 +195,7 @@ const EditProducts = ({
               displayEmpty
               id="demo-select-small"
               value={subcateg}
-              onChange={useCallback((e: any) => {
-                setSubcateg(e.target.value);
-              }, [])}
+              onChange={ChangeSubcategory}
             >
               <MenuItem disabled value="">
                 <em style={color}>Выберите категорию</em>

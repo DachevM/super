@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { UserService } from "./UserService";
-import { type IClients } from "../types/types";
+
+import type React from "react";
+
+import { type IClients } from "../Types/types";
 const MainPage = () => {
   const [users, setUsers] = useState<any>([]);
 

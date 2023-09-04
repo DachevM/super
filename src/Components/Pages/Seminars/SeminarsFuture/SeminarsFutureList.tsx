@@ -7,7 +7,7 @@ import SeminarsFutureItem from "./SeminarsFutureItem";
 import Modal from "../../../UI/PopUP/Modal";
 import CountModal from "../../../UI/PopUP/CountModal";
 import "./seminarsFuture.css";
-import { type IFuture } from "../../../../types/types";
+import { type IFuture } from "../../../../Types/types";
 
 interface FutureBody {
   searchedSeminarsFuture: IFuture[];
@@ -37,6 +37,7 @@ const SeminarsFutureList = ({
       });
     }
   };
+
   const checkAllHandler = useCallback(() => {
     if (future.length === selectedItems.length) {
       setSelectedItems([]);
@@ -53,6 +54,10 @@ const SeminarsFutureList = ({
     setModalCount(true);
   }, [checkAll]);
 
+  const showModal = useCallback(() => {
+    setShow(true);
+  }, []);
+
   return (
     <div className={"seminarsFutureBody"}>
       <div className={"seminarsFuture_link"}>
@@ -67,12 +72,7 @@ const SeminarsFutureList = ({
         </Link>
       </div>
       <div className={"seminarsFuture_butt"}>
-        <button
-          className={"seminarsFuture_head_butt"}
-          onClick={useCallback(() => {
-            setShow(true);
-          }, [])}
-        >
+        <button className={"seminarsFuture_head_butt"} onClick={showModal}>
           Добавить семинар
         </button>
         <Modal show={show} setShow={setShow}>

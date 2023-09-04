@@ -4,7 +4,7 @@ import ProductsItem from "./ProductsItem";
 
 import CountModal from "../../UI/PopUP/CountModal";
 import "./products.css";
-import { type IProducts } from "../../../types/types";
+import { type IProducts } from "../../../Types/types";
 
 interface ListProps {
   searched: IProducts[];

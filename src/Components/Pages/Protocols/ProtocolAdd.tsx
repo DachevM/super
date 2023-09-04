@@ -1,57 +1,59 @@
-import { useCallback, useMemo, useState } from "react";
-import { TextField } from "@mui/material";
+import { useCallback, useState } from "react";
+
+import ProtocolsAddSearch from "./ProtocolsAddSearch";
 
 import type React from "react";
 
-import { Img } from "../../../images/Img";
 import "./protocol.css";
-import { type IProtocol } from "../../../types/types";
+import { type IProtocol } from "../../../Types/types";
+import { protocolAPI } from "../../../RTK/services/ProtocolService";
+import { initialProtocolValue } from "../../helper";
 
 interface ProtocolAddProps {
   filtered: IProtocol[];
-  protocols: IProtocol[];
+
   setShow: (value: boolean) => void;
-  setProtocols: (v: IProtocol[]) => void;
 }
 
-const ProtocolAdd = ({
-  filtered,
-  setShow,
-  setProtocols,
-  protocols,
-}: ProtocolAddProps) => {
+const ProtocolAdd = ({ filtered, setShow }: ProtocolAddProps) => {
   const [name, setName] = useState<string>("");
   const [brand, setBrand] = useState<string>("");
   const [description, setDescription] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
-
-  const searchedProd = useMemo(() => {
-    return filtered.map((elem) =>
-      elem.products.filter((e) =>
-        e.name.toLowerCase().includes(search.toLowerCase())
-      )
-    );
-  }, [filtered, search]);
+  const [protocolAdd] = protocolAPI.useProtocolAddMutation();
 
   const newProtocolAdd = useCallback(() => {
     const newProtocol: IProtocol = {
-      name,
-      protocol_category: {
-        id: "a23e5f4c-6718-4cd0-8328-f4a93a96df22",
-        name: "Для жирной кожи",
-      },
+      ...initialProtocolValue,
+      name: name,
+      description: description,
       brand: {
         id: "",
         name: brand,
       },
-      description,
-      id: Date.now() + "",
-      isRetailAllowed: false,
-      products: [],
     };
-    setProtocols([...protocols, newProtocol]);
+    protocolAdd(newProtocol);
     setShow(false);
-  }, [brand, description, name, protocols, setProtocols, setShow]);
+  }, [brand, description, name, protocolAdd, setShow]);
+
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeInpBrand = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setBrand(e.target.value);
+    },
+    []
+  );
+  const ChangeInpDescr = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setDescription(e.target.value);
+    },
+    []
+  );
 
   return (
     <div className={"protocol_add"}>
@@ -65,9 +67,7 @@ const ProtocolAdd = ({
         <input
           type={"text"}
           value={name}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setName(e.target.value);
-          }, [])}
+          onChange={ChangeInpName}
           placeholder={"Введите название протокола"}
           className={"protocol_add_inp"}
         />
@@ -75,9 +75,7 @@ const ProtocolAdd = ({
         <input
           type={"text"}
           value={brand}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setBrand(e.target.value);
-          }, [])}
+          onChange={ChangeInpBrand}
           placeholder={"Выбурите бренд протокола"}
           className={"protocol_add_inp"}
         />
@@ -85,9 +83,7 @@ const ProtocolAdd = ({
         <input
           type={"text"}
           value={description}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setDescription(e.target.value);
-          }, [])}
+          onChange={ChangeInpDescr}
           placeholder={"Введите описание"}
           className={"protocol_add_large_inp"}
         />
@@ -98,32 +94,9 @@ const ProtocolAdd = ({
           disabled={true}
           className={"protocol_add_inp"}
         />
-        <div className={"protocol_product_text"}>Товары протокола</div>
-        <div className={"protocol_products"}>
-          {searchedProd.map((elem) =>
-            elem.map((e) => (
-              <div key={e.id} className={"protocol_products_section"}>
-                <div className={"protocol_product_name"}>{e.name}</div>
-                <div className={"protocol_product_brand"}>{e.brand.name}</div>
-                <div>
-                  <img className={"protocols_trash"} src={Img.trash} alt={""} />
-                </div>
-              </div>
-            ))
-          )}
-        </div>
-        <div className={"protocol_add_search"}>
-          <TextField
-            size={"small"}
-            value={search}
-            onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-              setSearch(e.target.value);
-            }, [])}
-            fullWidth={true}
-            className={"products_search_inp"}
-            placeholder={"Поиск по товарам"}
-          />
-        </div>
+        <>
+          <ProtocolsAddSearch filtered={filtered} />
+        </>
       </div>
     </div>
   );

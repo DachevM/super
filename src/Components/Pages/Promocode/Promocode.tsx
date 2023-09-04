@@ -6,7 +6,7 @@ import PromocodeList from "./PromocodeList";
 
 import "./promocode.css";
 
-import { type IPromocode } from "../../../types/types";
+import { type IPromocode } from "../../../Types/types";
 
 const SERVER = "http://localhost:5005/promocodes";
 

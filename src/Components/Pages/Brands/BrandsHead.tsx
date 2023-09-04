@@ -21,22 +21,31 @@ const BrandsHead = () => {
     setIcon("");
   };
 
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setName(e.target.value);
+    },
+    []
+  );
+
+  const ChangeInpIcon = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setIcon(e.target.value);
+    },
+    []
+  );
   return (
     <div className={"brands_head"}>
       <input
         value={name}
-        onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-          setName(e.target.value);
-        }, [])}
+        onChange={ChangeInpName}
         type={"text"}
         placeholder={"Введите название бренда"}
         className={"brands_head_inp"}
       />
       <input
         value={icon}
-        onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-          setIcon(e.target.value);
-        }, [])}
+        onChange={ChangeInpIcon}
         type={"text"}
         placeholder={"Загрузите логотип бренда"}
         className={"brands_head_inp"}

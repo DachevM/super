@@ -9,7 +9,7 @@ import {
   protocolCategoryAPI,
 } from "../../../RTK/services/ProtocolService";
 import "./protocol.css";
-import { type IProtocol, type IProtocolCategory } from "../../../types/types";
+import { type IProtocol, type IProtocolCategory } from "../../../Types/types";
 
 const ProtocolMain = () => {
   const [protocolsCategory, setProtocolsCategory] = useState<
@@ -37,17 +37,12 @@ const ProtocolMain = () => {
       <ProtocolCategory
         setSelected={setSelected}
         protocolsCategory={protocolsCategory}
-        setProtocols={setProtocolsCategory}
       />
       <div>
         <KeyboardDoubleArrowRightIcon />
       </div>
       {selected ? (
-        <Protocols
-          protocols={protocols}
-          setProtocols={setProtocols}
-          filtered={filtered}
-        />
+        <Protocols filtered={filtered} />
       ) : (
         <p className={"choose_protocol"}>Выберите категорию</p>
       )}
