@@ -2,8 +2,8 @@ import { Navigate } from "react-router-dom";
 import React, { lazy } from "react";
 import { Provider } from "react-redux";
 
-import MainPage from "../services/MainePage";
-import Test from "../test/test";
+import MainPage from "../Services/MainePage";
+import Test from "../Test/test";
 import { state } from "../RTK/state";
 
 const Clients = lazy(
@@ -88,6 +88,7 @@ const privateRoutes = [
   { path: "/service", element: <MainPage /> },
   { path: "/test", element: <Test /> },
   { path: "/", element: <Navigate to="/products" /> },
+  { path: "*", element: <Navigate to="/products" /> },
 ];
 
 const publicRoutes = [
@@ -95,22 +96,4 @@ const publicRoutes = [
   { path: "/auth/register", element: <Register /> },
   { path: "*", element: <Navigate to="/auth/login" /> },
 ];
-
-// import Products from "../Components/Pages/Products/Products";s
-// import Clients from "../Components/Pages/Clients/Clients";
-// import CategoriesMain from "../Components/Pages/Categories/CategoriesMain";
-// import Cities from "../Components/Pages/Cities/Cities";
-// import Brands from "../Components/Pages/Brands/Brands";
-// import Orders from "../Components/Pages/Orders/Orders";
-// import Banners from "../Components/Pages/Banners/Banners";
-// import Promocode from "../Components/Pages/Promocode/Promocode";
-// import AuthLogin from "../Components/Auth/AuthLogin";
-// import Register from "../Components/Auth/Register";
-// import {Navigate} from "react-router-dom";
-// import Test from "../test/test";
-// import ProtocolMain from "../Components/Pages/Protocols/ProtocolMain";
-// import SeminarsRequest from "../Components/Pages/Seminars/SeminarsRequest/SeminarsRequest";
-// import SeminarsFuture from "../Components/Pages/Seminars/SeminarsFuture/SeminarsFuture";
-// import SeminarsHistory from "../Components/Pages/Seminars/SeminarsHistory/SeminarsHistory";
-
 export { publicRoutes, privateRoutes };

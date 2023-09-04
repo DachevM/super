@@ -1,17 +1,8 @@
 import { useCallback, useState } from "react";
-import { ThemeProvider } from "@emotion/react";
-import {
-  Button,
-  FormControl,
-  MenuItem,
-  Select,
-  TextField,
-} from "@mui/material";
+import { FormControl, MenuItem, Select } from "@mui/material";
 
 import type React from "react";
-import type { IFuture } from "../../../../types/types";
-
-import { theme } from "../../../../Customization/Customization";
+import type { IFuture } from "../../../../Types/types";
 
 interface FutureAdd {
   future: IFuture[];
@@ -47,94 +38,92 @@ const SeminarsFutureAdd = ({ future, setFuture, setShow }: FutureAdd) => {
     setDescription("");
     setSpeaker_speciality("");
     setShow(false);
-  }, []);
+  }, [
+    date,
+    description,
+    future,
+    name,
+    setFuture,
+    setShow,
+    speaker,
+    speaker_speciality,
+    time,
+  ]);
   const closeModal = useCallback(() => {
     setShow(false);
-  }, []);
+  }, [setShow]);
+
+  const ChangeInpSpeaker = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setSpeaker(e.target.value),
+    []
+  );
+  const ChangeInpDate = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setDate(e.target.value),
+    []
+  );
+  const ChangeInpTime = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setTime(e.target.value),
+    []
+  );
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value),
+    []
+  );
+  const ChangeInpDescription = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setDescription(e.target.value),
+    []
+  );
+  const ChangeInpSpeaker_speciality = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) =>
+      setSpeaker_speciality(e.target.value),
+    []
+  );
+
+  const ChangeCategory = useCallback((e: any) => setCateg(e.target.value), []);
 
   return (
     <div className={"seminars_add"}>
       <div className={"seminars_add_head"}>
-        <ThemeProvider theme={theme}>
-          <Button
-            onClick={closeModal}
-            fullWidth={true}
-            size={"medium"}
-            variant={"outlined"}
-          >
-            {" "}
-            Удалить{" "}
-          </Button>
-        </ThemeProvider>
-        <ThemeProvider theme={theme}>
-          <Button
-            onClick={newSeminarFutureAdd}
-            fullWidth={true}
-            size={"medium"}
-            variant={"contained"}
-          >
-            {" "}
-            Сохранить{" "}
-          </Button>
-        </ThemeProvider>
+        <button onClick={closeModal} className={"future_butt_close"}>
+          Удалить
+        </button>
+        <button onClick={newSeminarFutureAdd} className={"future_butt_save"}>
+          Сохранить
+        </button>
       </div>
       <div className={"seminars_add_body"}>
         <div className={"edit_descr"}>
           <label form={"outlined-basic"}>Название*</label>
-          <TextField
+          <input
+            type={"text"}
             value={name}
-            onChange={useCallback(
-              (e: React.ChangeEvent<HTMLInputElement>) =>
-                setName(e.target.value),
-              []
-            )}
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
-            placeholder={"Напишите название семинара"}
-            variant="outlined"
+            onChange={ChangeInpName}
+            placeholder={"Напишите название"}
+            className={"future_descr_inp"}
           />
           <label form={"outlined-basic"}>Описание*</label>
-          <TextField
+          <input
+            type={"text"}
             value={description}
-            onChange={useCallback(
-              (e: React.ChangeEvent<HTMLInputElement>) =>
-                setDescription(e.target.value),
-              []
-            )}
-            fullWidth={true}
-            size={"medium"}
-            id="outlined-basic"
+            onChange={ChangeInpDescription}
             placeholder={"Опишите семинар"}
-            variant="outlined"
+            className={"future_descr_inp"}
           />
           <label form={"outlined-basic"}>Спикер*</label>
-          <TextField
+          <input
+            type={"text"}
             value={speaker}
-            onChange={useCallback(
-              (e: React.ChangeEvent<HTMLInputElement>) =>
-                setSpeaker(e.target.value),
-              []
-            )}
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
+            onChange={ChangeInpSpeaker}
             placeholder={"Напишите имя спикера"}
-            variant="outlined"
+            className={"future_descr_inp"}
           />
           <label form={"outlined-basic"}>Специальность спикера*</label>
-          <TextField
+          <input
+            type={"text"}
             value={speaker_speciality}
-            onChange={useCallback(
-              (e: React.ChangeEvent<HTMLInputElement>) =>
-                setSpeaker_speciality(e.target.value),
-              []
-            )}
-            fullWidth={true}
-            size={"small"}
-            id="outlined-basic"
-            placeholder={"Напишите имя спикера"}
-            variant="outlined"
+            onChange={ChangeInpSpeaker_speciality}
+            placeholder={"Напишите специальность спикера"}
+            className={"future_descr_inp"}
           />
           <label form={"demo-select-smal"}>Город*</label>
           <FormControl fullWidth={true} size="small">
@@ -142,7 +131,7 @@ const SeminarsFutureAdd = ({ future, setFuture, setShow }: FutureAdd) => {
               displayEmpty
               id="demo-select-small"
               value={categ}
-              onChange={useCallback((e: any) => setCateg(e.target.value), [])}
+              onChange={ChangeCategory}
             >
               <MenuItem disabled value="">
                 <em>Выберите город</em>
@@ -154,42 +143,27 @@ const SeminarsFutureAdd = ({ future, setFuture, setShow }: FutureAdd) => {
             </Select>
           </FormControl>
           <div className={"seminar_time"}>
-            <TextField
-              value={date}
-              onChange={useCallback(
-                (e: React.ChangeEvent<HTMLInputElement>) =>
-                  setDate(e.target.value),
-                []
-              )}
-              fullWidth={true}
-              size={"small"}
-              id="outlined-basic"
-              placeholder={"Выберите дату"}
-              variant="outlined"
-            />
-            <TextField
+            <input
+              type={"date"}
               value={time}
-              onChange={useCallback(
-                (e: React.ChangeEvent<HTMLInputElement>) =>
-                  setTime(e.target.value),
-                []
-              )}
-              fullWidth={true}
-              size={"small"}
-              id="outlined-basic"
+              onChange={ChangeInpTime}
               placeholder={"Выберите время"}
-              variant="outlined"
+              className={"future_descr_inp"}
+            />
+            <input
+              type={"time"}
+              value={date}
+              onChange={ChangeInpDate}
+              placeholder={"Выберите дату"}
+              className={"future_descr_inp"}
             />
           </div>
           <div>
-            <TextField
-              fullWidth={true}
-              className={"editInp"}
-              size={"small"}
-              id="outlined-basic"
+            <input
+              type={"text"}
               placeholder={"Вставьте ссылку на Google Drive"}
-              variant="outlined"
-            />{" "}
+              className={"future_descr_inp"}
+            />
           </div>
           <p>Размер фото 750х730 px PNG, JPG, JPEG</p>
         </div>

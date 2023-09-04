@@ -1,8 +1,6 @@
-import SearchSelectors from "./searchSelector";
 import ProductSelector from "./productSelector";
 
-module Selectors {
-  export const search = SearchSelectors;
+namespace Selectors {
   export const product = ProductSelector;
 }
 

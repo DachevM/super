@@ -3,7 +3,7 @@ import {
   SubcategoriesEnum,
   type SubcategoryAction,
 } from "../types/subcategory";
-import { type ISubCategory } from "../../types/types";
+import { type ISubCategory } from "../../Types/types";
 
 const SubcategoryState: ISub = {
   subcategory: [],

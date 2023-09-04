@@ -1,10 +1,13 @@
 import React, { type ChangeEvent, useCallback, useState } from "react";
-import { Checkbox, FormControlLabel } from "@mui/material";
-import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
+import { Link } from "react-router-dom";
 
+import SeminarsHistoryAdd from "./SeminarsHistoryAdd";
+import SeminarHistoryItem from "./SeminarHistoryItem";
+
+import Modal from "../../../UI/PopUP/Modal";
+import CountModal from "../../../UI/PopUP/CountModal";
 import "./seminarsHistory.css";
-import { type IHistory } from "../../../../types/types";
+import { type IHistory } from "../../../../Types/types";
 
 interface HistoryBodyProps {
   history: IHistory[];
@@ -17,11 +20,11 @@ const SeminarsHistoryList = ({
   history,
   setHistory,
 }: HistoryBodyProps) => {
-  const removeSeminar = (seminar: IHistory) => {
-    setHistory(history.filter((e) => e.id !== seminar.id));
-  };
-
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
+  const [show, setShow] = useState<boolean>(false);
+  const [checkAll, setCheckAll] = useState(false);
+  const [showModalCount, setModalCount] = useState(false);
+
   const checkboxHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const isSelected = e.target.checked;
     const value = e.target.value;
@@ -44,50 +47,80 @@ const SeminarsHistoryList = ({
       });
       setSelectedItems(seminarsIds);
     }
+  }, [history, selectedItems.length]);
+
+  const showCount = useCallback(() => {
+    setCheckAll(!checkAll);
+    setModalCount(true);
+  }, [checkAll]);
+
+  const showModal = useCallback(() => {
+    setShow(true);
   }, []);
 
   return (
     <div className={"seminarsHistoryBody"}>
-      <div className={"seminarsHistory_descr"}>
-        <p className={"seminarsHistory_name"}>
-          <FormControlLabel
-            label={""}
-            control={<Checkbox onClick={checkAllHandler} size={"small"} />}
+      <div className={"seminarsHistory_link"}>
+        <Link className={"link"} to={"/seminars/future"}>
+          Будущие
+        </Link>
+        <Link className={"link"} to={"/seminars/history"}>
+          История
+        </Link>
+        <Link className={"link"} to={"/seminars/request"}>
+          Заявки на семинары
+        </Link>
+      </div>
+      <div className={"seminarsHistory_butt"}>
+        <button className={"seminarsHistory_head_butt"} onClick={showModal}>
+          Добавить семинар
+        </button>
+        <Modal show={show} setShow={setShow}>
+          <SeminarsHistoryAdd
+            setShow={setShow}
+            setHistory={setHistory}
+            history={history}
           />
-          Название семинара
-        </p>
+        </Modal>
+      </div>
+      <div className={"seminarsHistory_descr"}>
+        <label className={"label_history"}>
+          <input
+            type={"checkbox"}
+            checked={checkAll}
+            onClick={showCount}
+            onChange={checkAllHandler}
+            className={"seminarsHistory_checkbox"}
+          />
+          <span className={"seminarsHistory_fake"}></span>
+        </label>
+        <p className={"seminarsHistory_name"}>Название</p>
         <p className={"seminarsHistory_date"}>Дата</p>
       </div>
       <div className={"seminarsHistory_seminars"}>
         {searchedSeminarsHistory.length !== 0 ? (
           <>
             {searchedSeminarsHistory.map((elem) => (
-              <div key={elem.id} className={"seminarsHistory_section"}>
-                <div className={"seminarsHistory_name"}>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        onChange={checkboxHandler}
-                        checked={selectedItems.includes(elem.id)}
-                        value={elem.id}
-                        size={"small"}
-                      />
-                    }
-                    label={""}
+              <>
+                <SeminarHistoryItem
+                  history={elem}
+                  seminarsHistory={history}
+                  selectedItems={selectedItems}
+                  checkboxHandler={checkboxHandler}
+                  setSelectedItems={setSelectedItems}
+                  setModalCount={setModalCount}
+                  setHistory={setHistory}
+                />
+                {showModalCount && (
+                  <CountModal
+                    setCheckAll={setCheckAll}
+                    setSelectedItems={setSelectedItems}
+                    show={showModalCount}
+                    setShow={setModalCount}
+                    number={selectedItems.length}
                   />
-                  {elem.name}
-                </div>
-                <div className={"seminarsHistory_date"}>
-                  {elem.date}
-                  <FavoriteBorderOutlinedIcon />{" "}
-                  <DeleteOutlineOutlinedIcon
-                    onClick={() => {
-                      removeSeminar(elem);
-                    }}
-                    cursor={"pointer"}
-                  />
-                </div>
-              </div>
+                )}
+              </>
             ))}
           </>
         ) : (

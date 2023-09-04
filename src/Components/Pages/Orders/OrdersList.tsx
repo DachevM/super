@@ -7,7 +7,7 @@ import Modal from "../../UI/PopUP/Modal";
 import { useToolkitSelector } from "../../../RTK/hooksRTK";
 import Loader from "../../UI/Loader/Loader";
 import "./orders.css";
-import { type IOrders } from "../../../types/types";
+import { type IOrders } from "../../../Types/types";
 interface OrdersBodyProps {
   searched: IOrders[];
 }
@@ -15,6 +15,7 @@ interface OrdersBodyProps {
 const OrdersList = ({ searched }: OrdersBodyProps) => {
   const [show, setShow] = useState<boolean>(false);
   const { isLoading, error } = useToolkitSelector((state) => state.orders);
+
   return (
     <div className={"ordersBody"}>
       <div className={"orders_descr"}>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./clients.css";
-import { type IClients } from "../../../types/types";
+import { type IClients } from "../../../Types/types";
 
 interface ClientsBodyProps {
   searched: IClients[];

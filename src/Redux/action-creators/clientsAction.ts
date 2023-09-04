@@ -1,7 +1,7 @@
 import { type Dispatch } from "redux";
 import axios from "axios";
 
-import { type IClients } from "../../types/types";
+import { type IClients } from "../../Types/types";
 import { type ClientAction, ClientsEnum } from "../types/clients";
 
 export const fetchClients = (

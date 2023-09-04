@@ -17,20 +17,17 @@ const Modal = ({ show, setShow, children }: ModalProps) => {
       setShow(false);
     }
   });
+  const CloseModal = useCallback(() => {
+    setShow(false);
+  }, [setShow]);
+
+  const Propagation = useCallback((e: any) => {
+    e.stopPropagation();
+  }, []);
 
   return createPortal(
-    <div
-      className={show ? "modal_active" : "modal"}
-      onClick={useCallback(() => {
-        setShow(false);
-      }, [])}
-    >
-      <div
-        className={"content"}
-        onClick={useCallback((e: any) => {
-          e.stopPropagation();
-        }, [])}
-      >
+    <div className={show ? "modal_active" : "modal"} onClick={CloseModal}>
+      <div className={"content"} onClick={Propagation}>
         {children}
       </div>
     </div>,

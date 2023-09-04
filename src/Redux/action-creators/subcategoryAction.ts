@@ -1,7 +1,7 @@
 import { type Dispatch } from "redux";
 import axios from "axios";
 
-import { type ISubCategory } from "../../types/types";
+import { type ISubCategory } from "../../Types/types";
 import {
   SubcategoriesEnum,
   type SubcategoryAction,

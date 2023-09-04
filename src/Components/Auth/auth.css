@@ -1,56 +1,182 @@
-.login_form{
-    position: absolute;
-    left: 650px;
-    top: 250px;
-
-width: 514px;
-    height: 450px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 1px 2px 5px 1px gray;
-    border-radius: 10px;
-font-weight: lighter;
+.login_form {
+  position: absolute;
+  left: 650px;
+  top: 250px;
+  width: 514px;
+  height: 450px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 2px 5px 1px gray;
+  border-radius: 10px;
+  font-weight: lighter;
 }
-.register_form{
-    position: absolute;
-    left: 650px;
-    top: 200px;
-    width: 550px;
-    height: 530px;
-    background-color: #FFFFFF;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 1px 2px 5px 1px gray;
-    border-radius: 10px;
+.enter {
+  font-size: 24px;
 }
 
-.auth_inp{
-    width: 100%;
+.inp_box_pass {
+  border: 1px solid white;
+  width: 462px;
+  height: 40px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 2px;
 }
-.login_box{
-    text-align: left;
-    margin-left: 20px;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    margin-right: 20px;
+
+.input_auth_pass {
+  border: 1px solid #d0d3da;
+  padding-left: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 2px;
 }
-.inp_box{
-    margin-top: 20px;
-    text-align: left;
+
+.input_auth_pass:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 2px solid #c06ecc;
+  outline: 0;
 }
-.butt_box{
-    display: flex;
-    flex-direction: column;
-    margin-top: 25px;
-    text-align: center;
+
+.input_auth_pass_error {
+  border: 1px solid #fa0037;
+  padding-left: 15px;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 2px;
 }
-.link_to_auth{
-    color: #C06ECC;
-    text-decoration: none;
-    margin-top: 15px;
+
+.input_auth_pass_error:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 2px solid #fa0037;
+  outline: 0;
 }
-.auth_butt{
+
+.input_box_button {
+  border: none;
+  height: 24px;
+  cursor: pointer;
+  background-color: white;
+  background-image: url("eye.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 17px;
+}
+
+.input_auth {
+  width: 100%;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid #d0d3da;
+  padding: 10px 12px 10px 15px;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+}
+.input_auth:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 2px solid #c06ecc;
+  outline: 0;
+}
+.input_auth_error {
+  width: 100%;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid #fa0037;
+  padding: 10px 12px 10px 15px;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+.input_auth_error:focus {
+  color: #212529;
+  background-color: #fff;
+  border: 2px solid #fa0037;
+  outline: 0;
+}
+.register_form {
+  position: absolute;
+  left: 650px;
+  top: 200px;
+  width: 514px;
+  height: 530px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 2px 5px 1px gray;
+  border-radius: 10px;
+}
+.auth_label {
+  font-size: 14px;
+}
+.auth_inp {
+  width: 100%;
+}
+.login_box {
+  width: 85%;
+  height: 100%;
+  text-align: left;
+  margin-left: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.inp_box {
+  margin-top: 5px;
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.auth_butt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #c06ecc;
+  border: #c06ecc;
+  color: white;
+  border-radius: 6px;
+  width: 466px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.butt_box {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+  text-align: center;
+}
+.link_to_auth {
+  color: #c06ecc;
+  text-decoration: none;
+  margin-top: 20px;
+  width: 466px;
+  font-size: 16px;
+}
+.auth_butt {
   color: #fff;
+}
+.error_message {
+  margin-left: 5px;
+  font-size: 12px;
+  color: red;
+}
+.error_message::before {
+  display: inline;
+  content: "⚠ ";
 }

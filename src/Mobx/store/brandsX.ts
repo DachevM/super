@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import axios from "axios";
 
-import { type IBrands } from "../../types/types";
+import { type IBrands } from "../../Types/types";
 
 const SERVER = "http://localhost:5005/brands";
 

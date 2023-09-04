@@ -1,17 +1,20 @@
 import React from "react";
 
 import "./banners.css";
-import { type IBanners } from "../../../types/types";
-import { Img } from "../../../images/Img";
+import { type IBanners } from "../../../Types/types";
+import { Img } from "../../../Images/Img";
+import { bannersAPI } from "../../../RTK/services/BannersService";
 interface BanersBodyProps {
   banners: IBanners[];
-  setBanners: (value: IBanners[]) => void;
 }
 
-const BannersList = ({ banners, setBanners }: BanersBodyProps) => {
+const BannersList = ({ banners }: BanersBodyProps) => {
+  const [deleteBanner] = bannersAPI.useDeleteBannerMutation();
+
   const removeBanner = (banner: IBanners) => {
-    setBanners(banners.filter((e) => e.id !== banner.id));
+    deleteBanner(banner);
   };
+
   return (
     <div className={"banners_body"}>
       <div className={"banners_body_head"}>Заголовок</div>

@@ -1,254 +1,290 @@
-.seminarsFuture_main{
-    margin: 30px;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-    color: #434652;
+.seminarsFuture_main {
+  margin: 30px;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  color: #434652;
 }
-.seminarsFuture_head{
-    height: 18%;
-    text-align: right;
-}
-
-
-.seminarsFuture_head_bottom{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    height: 35px;
-    margin-top: 50px;
-    margin-bottom: 25px;
-    font-size: 16px;
-}
-.seminarsFuture_link{
-    font-size: 16px;
-    width: 350px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: -40px;
-    margin-bottom: 30px;
-}
-.seminarsFuture_butt{
-    margin-bottom: 20px;
+.seminarsFuture_head {
+  height: 18%;
+  text-align: right;
 }
 
-.seminarsFuture_head_butt{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    background-color: #C06ECC;
-    border: #C06ECC;
-    color: white;
-    border-radius: 6px;
-    width:1015px;
-    height: 40px;
-    cursor: pointer;
-    padding: 8px 20px 8px 20px;
+.seminarsFuture_head_bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+.seminarsFuture_link {
+  font-size: 16px;
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -40px;
+  margin-bottom: 30px;
+}
+.seminarsFuture_butt {
+  margin-bottom: 20px;
+}
+
+.seminarsFuture_head_butt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #c06ecc;
+  border: #c06ecc;
+  color: white;
+  border-radius: 6px;
+  width: 1015px;
+  height: 40px;
+  cursor: pointer;
+  padding: 8px 20px 8px 20px;
 }
 
 .label {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .seminarsFuture_checkbox {
-    appearance: none;
+  appearance: none;
 }
 
 .seminarsFuture_fake {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #D0D3DA;
-    background-color: #EBECEF;
-    position: relative;
-    cursor: pointer;
-    border-radius: 2px;
-
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d0d3da;
+  background-color: #ebecef;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .seminarsFuture_fake::before {
-    content: "";
-    position: absolute;
-    display: block;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    width: 17px;
-    height: 17px;
-    background-color: #C06ECC;
-    border-radius: 2px;
-    opacity: 0;
-    transition: .2s;
-    background-repeat: no-repeat;
-    background-image: url("checkbox-mark-svgrepo-com.png");
-    background-size: 13px 13px;
-    background-position: center;
-    border: 1px solid #C06ECC;
+  content: "";
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  background-color: #c06ecc;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-image: url("checkbox-mark-svgrepo-com.png");
+  background-size: 13px 13px;
+  background-position: center;
+  border: 1px solid #c06ecc;
 }
 
 .seminarsFuture:checked + .seminarsFuture_fake::before {
-    opacity: 1;
-
+  opacity: 1;
 }
 
 .text {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .label_item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .seminarsFutureItem_checkbox {
-    appearance: none;
+  appearance: none;
 }
 
 .fake_item {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 1px solid #D0D3DA;
-    background-color: white;
-    position: relative;
-    cursor: pointer;
-    border-radius: 2px;
-
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d0d3da;
+  background-color: white;
+  position: relative;
+  cursor: pointer;
+  border-radius: 2px;
 }
 
 .label_item::before {
-    content: "";
-    position: absolute;
-    display: block;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    width: 17px;
-    height: 17px;
-    background-color: #C06ECC;
-    border-radius: 2px;
-    opacity: 0;
-    transition: .2s;
-    background-repeat: no-repeat;
-    background-image: url("checkbox-mark-svgrepo-com.png");
-    background-size: 13px 13px;
-    background-position: center;
-    border: 1px solid #C06ECC;
+  content: "";
+  position: absolute;
+  display: block;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 17px;
+  height: 17px;
+  background-color: #c06ecc;
+  border-radius: 2px;
+  opacity: 0;
+  transition: 0.2s;
+  background-repeat: no-repeat;
+  background-image: url("checkbox-mark-svgrepo-com.png");
+  background-size: 13px 13px;
+  background-position: center;
+  border: 1px solid #c06ecc;
 }
 
 .seminarsFutureItem_checkbox:checked + .fake_item::before {
-    opacity: 1;
-
+  opacity: 1;
 }
 
 .text {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
-
-.link{
-    text-decoration: none;
-    color: #737680;
+.link {
+  text-decoration: none;
+  color: #737680;
 }
 
-.seminarsFutureBody{
-    display: flex;
-    flex-direction: column;
-    height: 75%;
+.seminarsFutureBody {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
 }
-.seminarsFuture_descr{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: row;
-    background-color: #F8F8FA;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
-    border-top-color: #EBECEF;
-    align-items: center;
-    height: 7%;
-    justify-content: space-between;
+.seminarsFuture_descr {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  background-color: #f8f8fa;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+  border-top-color: #ebecef;
+  align-items: center;
+  height: 7%;
+  justify-content: space-between;
 }
-.seminarsFuture_section{
-    padding-left: 10px;
-    padding-right: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
-    height: 60px;
+.seminarsFuture_section {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+  height: 60px;
+}
+.seminarsFuture_name {
+  text-align: left;
+  width: 500px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.seminarsFuture_speaker {
+  text-align: left;
+  width: 280px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.seminarsFuture_date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  width: 175px;
+}
+.seminar_time {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 8px;
+}
+.seminars_add {
+  text-align: left;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  width: 640px;
+  color: #363535;
+}
+.seminars_add_head {
+  padding-left: 70px;
+  padding-right: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 101px;
+  border: 2px solid white;
+  border-bottom-color: #ebecef;
+}
 
+.future_butt_save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: #c06ecc;
+  border: #c06ecc;
+  color: white;
+  border-radius: 6px;
+  width: 272px;
+  height: 48px;
+  cursor: pointer;
+  margin-left: 7px;
 }
-.seminarsFuture_name{
-    text-align: left;
-    width: 500px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+.future_butt_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background-color: white;
+  border: 1px solid #d0d3da;
+  color: #37393d;
+  border-radius: 6px;
+  width: 272px;
+  height: 48px;
+  cursor: pointer;
+  margin-right: 7px;
 }
-.seminarsFuture_speaker{
-    text-align: left;
-    width: 280px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+
+.seminars_add_body {
+  height: 840px;
+  margin: 20px;
+  overflow: auto;
 }
-.seminarsFuture_date{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    width: 175px;
-}
-.seminar_time{
- display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.seminars_add{
-    text-align: left;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    width: 560px;
-    color: #363535;
-}
-.seminars_add_head{
-    padding-left: 70px;
-    padding-right: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 70px;
-    border: 2px solid white;
-    border-bottom-color: #EBECEF;
-}
-.seminars_add_body{
-    height: 840px;
-    margin: 20px;
-    overflow: auto;
-}
-.seminarsFuture_seminars{
-    overflow: auto;
-    height: 680px;
+.seminarsFuture_seminars {
+  overflow: auto;
+  height: 680px;
 }
 
 .seminarsFuture_seminars::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 .seminarsFuture_trash {
-    margin-right: 15px;
-    cursor: pointer;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.future_descr_inp {
+  width: 560px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1px solid #d0d3da;
+  padding: 10px 12px 10px 12px;
+  gap: 8px;
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }

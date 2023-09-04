@@ -1,6 +1,6 @@
-import { RootState } from "../store";
+import type { RootState } from "../store";
 
-module ProductSelectors {
+namespace ProductSelectors {
   export const product = (s: RootState) => s.product;
 }
 

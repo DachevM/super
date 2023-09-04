@@ -1,8 +1,8 @@
 import React, { type ChangeEvent, useCallback } from "react";
 
-import type { IFuture } from "../../../../types/types";
+import type { IFuture } from "../../../../Types/types";
 
-import { Img } from "../../../../images/Img";
+import { Img } from "../../../../Images/Img";
 
 import "./seminarsFuture.css";
 

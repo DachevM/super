@@ -1,8 +1,8 @@
 import React from "react";
 
 import "./promocode.css";
-import { type IPromocode } from "../../../types/types";
-import { Img } from "../../../images/Img";
+import { type IPromocode } from "../../../Types/types";
+import { Img } from "../../../Images/Img";
 interface PromocodeBodyProps {
   promocode: IPromocode[];
   setPromocode: (value: IPromocode[]) => void;
@@ -11,6 +11,7 @@ const PromocodeList = ({ promocode, setPromocode }: PromocodeBodyProps) => {
   const removePromocode = (promo: IPromocode) => {
     setPromocode(promocode.filter((e) => e.id !== promo.id));
   };
+
   return (
     <div className={"promocode_body"}>
       <div className={"promocode_body_head"}>Заголовок</div>

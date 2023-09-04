@@ -2,14 +2,14 @@ import { useCallback, useState } from "react";
 
 import type React from "react";
 
-import { Img } from "../../../images/Img";
+import { Img } from "../../../Images/Img";
 import { useAppDispatch } from "../../../Redux/hooks";
 import {
   addCategory,
   removeSub,
 } from "../../../Redux/action-creators/subcategoryAction";
 import "./categories.css";
-import { type ISubCategory } from "../../../types/types";
+import { type ISubCategory } from "../../../Types/types";
 interface SubcategoryProps {
   filtered: ISubCategory[];
 }
@@ -34,14 +34,19 @@ const Subcategories = ({ filtered }: SubcategoryProps) => {
     setCategName("");
   };
 
+  const ChangeInpName = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setCategName(e.target.value);
+    },
+    []
+  );
+
   return (
     <div className={"subcategories"}>
       <div className={"subcategories_head"}>
         <input
           value={name}
-          onChange={useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-            setCategName(e.target.value);
-          }, [])}
+          onChange={ChangeInpName}
           type={"text"}
           placeholder={"Введите название категории"}
           className={"categories_search_inp"}

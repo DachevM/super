@@ -18,7 +18,6 @@ interface IPaginationProps {
 }
 
 const Pagination = ({ pages, total }: IPaginationProps) => {
-  const [menu, setMenu] = useState<number>(5);
   // const dispatch=useAppDispatch()
   // const history = useNavigate();
   // const pagesPlus = () => {
@@ -36,7 +35,7 @@ const Pagination = ({ pages, total }: IPaginationProps) => {
   //         dispatch(setLimit(5))
   //     };
   // }, [history]);
-
+  const [menu, setMenu] = useState<number>(5);
   const dispatch = useToolkitDispatch();
   const history = useNavigate();
   const pagesPlus = () => {
@@ -48,6 +47,11 @@ const Pagination = ({ pages, total }: IPaginationProps) => {
   const limitChange = () => {
     dispatch(setLim(menu));
   };
+
+  const selectChange = useCallback((e: any) => {
+    setMenu(e.target.value);
+  }, []);
+
   useEffect(() => {
     return () => {
       dispatch(setPage(1));
@@ -58,13 +62,7 @@ const Pagination = ({ pages, total }: IPaginationProps) => {
   return (
     <div className={"pagination_pages"}>
       Показывать
-      <select
-        onClick={limitChange}
-        onChange={useCallback((e: any) => {
-          setMenu(e.target.value);
-        }, [])}
-        className="menu"
-      >
+      <select onClick={limitChange} onChange={selectChange} className={"menu"}>
         <option value={5}>5</option>
         <option value={10}>10</option>
         <option value={15}>15</option>

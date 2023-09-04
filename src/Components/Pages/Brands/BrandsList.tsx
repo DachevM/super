@@ -4,7 +4,7 @@ import BrandsItem from "./BrandsItem";
 
 import "./brands.css";
 
-import { type IBrands } from "../../../types/types";
+import { type IBrands } from "../../../Types/types";
 
 interface BrandsBodyProps {
   brands: IBrands[];

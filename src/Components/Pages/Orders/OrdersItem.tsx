@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 
-import { type IOrders } from "../../../types/types";
+import { type IOrders } from "../../../Types/types";
 
 interface ListProps {
   order: IOrders;
@@ -10,7 +10,8 @@ interface ListProps {
 const OrdersItem = ({ order, setShow }: ListProps) => {
   const showModal = useCallback(() => {
     setShow(true);
-  }, []);
+  }, [setShow]);
+
   return (
     <div onClick={showModal} key={order.user.id} className={"orders_section"}>
       <p className={"orders_name"}>

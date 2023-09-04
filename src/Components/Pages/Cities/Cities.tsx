@@ -6,7 +6,7 @@ import CitiesList from "./CitiesList";
 
 import "./cities.css";
 
-import { type ICities } from "../../../types/types";
+import { type ICities } from "../../../Types/types";
 const SERVER = "http://localhost:5005/cities";
 const Cities: FC = () => {
   const [cities, setCities] = useState<ICities[]>([]);

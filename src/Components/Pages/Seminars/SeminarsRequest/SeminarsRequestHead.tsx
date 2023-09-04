@@ -40,18 +40,18 @@ const SeminarsRequestHead = ({
   const limitChange15 = useCallback(() => {
     setLimit(15);
   }, []);
-
+  const ChangeInpSearch = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => setSearch(e.target.value),
+    []
+  );
+  const ChangeMenu = useCallback((e: any) => setMenu(e.target.value), []);
   return (
     <div className={"seminarsRequest_head"}>
       <div>
         <TextField
           size={"small"}
           value={search}
-          onChange={useCallback(
-            (e: React.ChangeEvent<HTMLInputElement>) =>
-              setSearch(e.target.value),
-            []
-          )}
+          onChange={ChangeInpSearch}
           fullWidth={false}
           className={"seminarsRequest_search_inp"}
           placeholder={"Поиск по семинарам"}
@@ -76,7 +76,7 @@ const SeminarsRequestHead = ({
               displayEmpty
               id="demo-select-small"
               value={menu}
-              onChange={useCallback((e: any) => setMenu(e.target.value), [])}
+              onChange={ChangeMenu}
             >
               <MenuItem disabled value="5">
                 <em></em>

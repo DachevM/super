@@ -4,8 +4,8 @@ import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import DeleteBrand from "./DeleteBrand";
 
 import DeleteModal from "../../UI/PopUP/DeleteModal";
-import { Img } from "../../../images/Img";
-import { type IBrands } from "../../../types/types";
+import { Img } from "../../../Images/Img";
+import { type IBrands } from "../../../Types/types";
 
 interface BrandsListProps {
   brand: IBrands;
@@ -17,6 +17,7 @@ const BrandsItem = ({ brand }: BrandsListProps) => {
   const showModal = useCallback(() => {
     setShow(true);
   }, []);
+
   return (
     <div key={brand.id} className={"brands_body_brands"}>
       <div className={"brands_body_left_brands"}>

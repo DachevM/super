@@ -8,7 +8,7 @@ import { useAppDispatch, useAppSelector } from "../../../Redux/hooks";
 import { fetchClients } from "../../../Redux/action-creators/clientsAction";
 import "./clients.css";
 import { type RootState } from "../../../Redux/store";
-import { type IClients } from "../../../types/types";
+import { type IClients } from "../../../Types/types";
 
 const SERVER_URL = "http://localhost:5005/clients";
 
@@ -21,10 +21,6 @@ const Clients = () => {
   );
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchClients(SERVER_URL, pages, limit));
-  }, [dispatch, limit, pages]);
-
   const totalCount = useCallback(() => {
     return Math.ceil(totalPages / limit);
   }, [limit, totalPages]);
@@ -34,6 +30,10 @@ const Clients = () => {
       e.name.toLowerCase().includes(search.toLowerCase())
     );
   }, [search, clients]);
+
+  useEffect(() => {
+    dispatch(fetchClients(SERVER_URL, pages, limit));
+  }, [dispatch, limit, pages]);
 
   return (
     <div className={"clients_main"}>

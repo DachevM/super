@@ -1,7 +1,7 @@
 import { type Dispatch } from "redux";
 import axios from "axios";
 
-import { type ICategory, type ISubCategory } from "../../types/types";
+import { type ICategory, type ISubCategory } from "../../Types/types";
 import { CategoriesEnum, type CategoryAction } from "../types/categories";
 
 const SERVER = "http://localhost:5005/categories";

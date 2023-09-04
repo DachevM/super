@@ -2,7 +2,7 @@ import { type Dispatch } from "redux";
 import axios from "axios";
 
 import { type ProdAction, ProductsEnum } from "../types/products";
-import { type IProducts } from "../../types/types";
+import { type IProducts } from "../../Types/types";
 
 const fetchProducts = (server: string, pages: number, limit: number): any => {
   return async (dispatch: Dispatch<ProdAction>) => {

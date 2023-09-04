@@ -1,6 +1,6 @@
-import { RootState } from "../store";
+import type { RootState } from "../store";
 
-module SearchSelectors {
+namespace SearchSelectors {
   export const searchText = (s: RootState) => s.search.text;
 }
 
